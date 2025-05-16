@@ -53,6 +53,12 @@
         text-decoration-thickness: 2px;
         font-size: 0.8rem;
         padding: 4px 24px;
+        border-radius: 4px;
+      }
+
+      .post {
+        font-size: 0.75rem;
+        margin-top: 20px;
       }
 
       a:hover {
@@ -61,8 +67,29 @@
         text-decoration: none;
       }
 
-      h2 span {
-        font-weight: 400;
+      h2 {
+        /* font-weight: 400; */
+        line-height: 1.4;
+        margin: 20px 0;
+      }
+
+      .wide {
+        display: none;
+      }
+
+      .links a {
+        display: block;
+      }
+
+      @media screen and (min-width: 460px) {
+        .links a {
+          display: inline-block;
+        }
+
+        .wide {
+          display: initial;
+        }
+
       }
     </style>
   </head>
@@ -81,8 +108,10 @@
       </svg>
     </h1>
     <h2>Friday 14 November 2025</h2>
-    <p>Save the date.</p>
-    <p><a href="https://ffconf.org/news">Get the latest news</a></p>
+    <p class="links"><a href="https://ffconf.org/cfp">Call for papers open</a>
+      <span class="wide">&bull;</span> <a href="https://ffconf.org/news">Subscribe to news</a>
+    </p>
+    <p class="post">Website launching soon</p>
     <!-- nope, no tracking here today. -->
   </body>
 
