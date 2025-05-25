@@ -1,9 +1,9 @@
 * {
-  color: #01001A;
+  color: #01001a;
   color: color(display-p3 0.0039 0 0.0941);
   text-align: center;
   font-feature-settings: 'liga' off, 'clig' off;
-  font-family: "Funnel Display";
+  font-family: 'Funnel Display';
   font-size: 28px;
   font-style: normal;
   font-weight: 400;
@@ -24,8 +24,323 @@ section {
 }
 
 section.hero {
-  background: #FFD000;
-  background: color(display-p3 1 0.83 0);
+  /* background: #ffd000; */
+  background-color: color(display-p3 1 0.83 0);
+  /* background: color(display-p3 1 0.83 0) url(/assets/floor.svg) no-repeat bottom */
+    /* center; */
+  background-image: url(/assets/floor.svg), url(/assets/sep.svg);
+  background-repeat: no-repeat no-repeat;
+  background-position: bottom center, top left;
+  background-size: 100%, 100%;
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
   .container {
     padding: 128px 76px;
@@ -49,14 +364,11 @@ ffconf-card {
   font-weight: 700;
   line-height: 32px; /* 114.286% */
   gap: 16px;
-  background: #FFF;
+  background: #fff;
   background: color(display-p3 1 1 1);
-  box-shadow: 4px 4px 0px 0px #01001A inset, 4px 4px 0px 0px #01001A;
-  box-shadow: 4px 4px 0px 0px color(display-p3 0.0039 0 0.0941) inset, 4px 4px 0px 0px color(display-p3 0.0039 0 0.0941);
-  
-  
-  
-  
+  box-shadow: 4px 4px 0px 0px #01001a inset, 4px 4px 0px 0px #01001a;
+  box-shadow: 4px 4px 0px 0px color(display-p3 0.0039 0 0.0941) inset,
+    4px 4px 0px 0px color(display-p3 0.0039 0 0.0941);
 
   * {
     font-size: inherit;
@@ -72,5 +384,4 @@ ffconf-card {
   ffconf-card {
     padding: 48px;
   }
-
 }
