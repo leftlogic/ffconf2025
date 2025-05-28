@@ -2,7 +2,7 @@
   color: #01001a;
   color: color(display-p3 0.0039 0 0.0941);
   text-align: center;
-  font-feature-settings: 'liga' off, 'clig' off;
+  font-feature-settings: 'liga' on, 'clig' off;
   font-family: 'Funnel Display';
   font-size: 28px;
   font-style: normal;
@@ -13,6 +13,22 @@
 }
 
 body {
+}
+
+h1 {
+  font-size: 27vw;
+  font-weight: 800;
+  line-height: 100%;
+}
+
+.logo {
+  margin-bottom: 48px;
+
+  time {
+    font-weight: 800;
+    font-size: xxx-large;
+    line-height: 100%;
+  }
 }
 
 section {
@@ -27,324 +43,19 @@ section.hero {
   /* background: #ffd000; */
   background-color: color(display-p3 1 0.83 0);
   /* background: color(display-p3 1 0.83 0) url(/assets/floor.svg) no-repeat bottom */
-    /* center; */
-  background-image: url(/assets/floor.svg), url(/assets/sep.svg);
+  /* center; */
+  background-image: url(/assets/floor.svg), url(/assets/sep2.svg);
   background-repeat: no-repeat no-repeat;
   background-position: bottom center, top left;
   background-size: 100%, 100%;
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 
   .container {
-    padding: 128px 76px;
+    padding: 96px 40px;
   }
+}
+
+#logo {
+  width: 252px;
 }
 
 ffconf-card-holder {
@@ -377,8 +88,15 @@ ffconf-card {
 }
 
 @media screen and (min-width: 864px) {
+  section.hero {
+    padding: 192px 96px;
+  }
   ffconf-card-holder {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  #logo {
+    width: 400px;
   }
 
   ffconf-card {
