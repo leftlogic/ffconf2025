@@ -12,9 +12,6 @@
   margin: 0;
 }
 
-body {
-}
-
 h1 {
   font-size: 27vw;
   font-weight: 800;
@@ -42,8 +39,6 @@ section {
 section.hero {
   /* background: #ffd000; */
   background-color: color(display-p3 1 0.83 0);
-  /* background: color(display-p3 1 0.83 0) url(/assets/floor.svg) no-repeat bottom */
-  /* center; */
   background-image: url(/assets/floor.svg), url(/assets/sep2.svg);
   background-repeat: no-repeat no-repeat;
   background-position: bottom center, top left;
