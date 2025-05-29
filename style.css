@@ -4,18 +4,26 @@
   text-align: center;
   font-feature-settings: 'liga' on, 'clig' off;
   font-family: 'Funnel Display';
-  font-size: 28px;
   font-style: normal;
   font-weight: 400;
-  line-height: 32px; /* 114.286% */
+  line-height: 1; /* 114.286% */
   padding: 0;
   margin: 0;
 }
 
 h1 {
-  font-size: 27vw;
+  font-size: clamp(3.4rem, 26vw, 6rem);
   font-weight: 800;
   line-height: 100%;
+}
+
+.strap {
+  font-weight: 700;
+  margin: 48px 0;
+  text-align: left;
+  font-size: 32px;
+  line-height: 32px;
+  text-wrap: balance;
 }
 
 .logo {
@@ -23,8 +31,9 @@ h1 {
 
   time {
     font-weight: 800;
-    font-size: xxx-large;
+    font-size: clamp(1.5rem, 11vw, 2.5rem);
     line-height: 100%;
+    white-space: nowrap;
   }
 }
 
@@ -42,10 +51,40 @@ section.hero {
   background-image: url(/assets/floor.svg), url(/assets/sep2.svg);
   background-repeat: no-repeat no-repeat;
   background-position: bottom center, top left;
-  background-size: 100%, 100%;
+  background-size: 100% clamp(164px, 50vw, 300px),
+    100% clamp(160px, 47vw, 256px);
 
   .container {
     padding: 96px 40px;
+  }
+}
+
+section {
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 100% clamp(164px, 50vw, 300px);
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.4;
+  }
+
+  .container {
+    padding: 40px;
+  }
+}
+
+section.schedule {
+  background-color: #6767ff;
+  background-image: url(/assets/floor-schedule.svg);
+  
+  h2 {
+    color: white;
+  }
+
+  .container {
+    padding: 40px;
   }
 }
 
@@ -82,6 +121,21 @@ ffconf-card {
   }
 }
 
+.notice {
+  border: 4px solid black;
+  padding: 16px;
+
+  p.heading {
+    font-weight: bold;
+    font-size: 2rem;
+  }
+
+  p {
+    margin: 8px;
+    font-size: 1.5rem;
+  }
+}
+
 @media screen and (min-width: 864px) {
   section.hero {
     padding: 192px 96px;
@@ -96,5 +150,9 @@ ffconf-card {
 
   ffconf-card {
     padding: 48px;
+  }
+
+  .logo {
+    flex-direction: row;
   }
 }
