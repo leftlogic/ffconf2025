@@ -1,7 +1,10 @@
+:root {
+  --p-boxed: 4px 4px 0px 0px #01001a inset, 4px 4px 0px 0px #01001a;
+}
+
 * {
   color: #01001a;
   color: color(display-p3 0.0039 0 0.0941);
-  text-align: center;
   font-feature-settings: 'liga' on, 'clig' off;
   font-family: 'Funnel Display';
   font-style: normal;
@@ -12,9 +15,15 @@
 }
 
 h1 {
-  font-size: clamp(3.4rem, 26vw, 6rem);
+  font-size: clamp(3.4rem, 26vw, 10rem);
   font-weight: 800;
   line-height: 100%;
+}
+
+p {
+  font-size: clamp(1.1375rem, 10vw, 1.5rem);
+  line-height: 1.4;
+  font-weight: 500;
 }
 
 .strap {
@@ -31,7 +40,7 @@ h1 {
 
   time {
     font-weight: 800;
-    font-size: clamp(1.5rem, 11vw, 2.5rem);
+    font-size: clamp(1.5rem, 11vw, 4.1rem);
     line-height: 100%;
     white-space: nowrap;
   }
@@ -43,6 +52,11 @@ section {
 
 .container {
   padding: 96px;
+}
+
+.boxed {
+  background: #fff;
+  box-shadow: var(--p-boxed);
 }
 
 section.hero {
@@ -65,27 +79,32 @@ section {
   background-size: 100% clamp(164px, 50vw, 300px);
 
   h2 {
-    font-size: 2.5rem;
+    font-size: clamp(2.5rem, 10vw, 72px);
     font-weight: 800;
     line-height: 1.4;
+    text-align: left;
+    margin: 80px 0;
   }
 
   .container {
     padding: 40px;
+    max-width: 1096px;
+    margin: 0 auto;
   }
 }
 
 section.schedule {
   background-color: #6767ff;
   background-image: url(/assets/floor-schedule.svg);
-  
+
   h2 {
     color: white;
   }
+}
 
-  .container {
-    padding: 40px;
-  }
+section.info {
+  background-color: #ff8359;
+  background-image: url(/assets/floor-info.svg);
 }
 
 #logo {
@@ -102,18 +121,12 @@ ffconf-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f2f1ed;
   padding: 32px;
   font-size: 26px;
   font-style: normal;
   font-weight: 700;
   line-height: 32px; /* 114.286% */
   gap: 16px;
-  background: #fff;
-  background: color(display-p3 1 1 1);
-  box-shadow: 4px 4px 0px 0px #01001a inset, 4px 4px 0px 0px #01001a;
-  box-shadow: 4px 4px 0px 0px color(display-p3 0.0039 0 0.0941) inset,
-    4px 4px 0px 0px color(display-p3 0.0039 0 0.0941);
 
   * {
     font-size: inherit;
@@ -121,9 +134,99 @@ ffconf-card {
   }
 }
 
+.sponsors {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+
+  .sponsor {
+    padding: 40px 56px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-height: 360px;
+    flex: 0.5;
+
+    &:not(&:has(img)) {
+      background: #fff url(/assets/ext.svg) no-repeat calc(100% - 56px)
+        calc(100% - 40px);
+    }
+
+    em {
+      text-decoration: underline;
+    }
+
+    span,
+    img {
+      display: block;
+      font-size: 1.5rem;
+    }
+
+    img {
+      /* align-content: space-between; */
+      justify-self: center;
+      width: fit-content;
+    }
+
+    .title {
+      color: #010018;
+    }
+
+    .description,
+    em {
+      color: #778083;
+      line-height: 1.4;
+    }
+  }
+}
+
+.card-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  li {
+    background: white;
+
+    a {
+      text-decoration: none;
+      display: block;
+      box-shadow: var(--p-boxed);
+      padding: 40px 56px;
+      background: url(/assets/ext.svg) no-repeat calc(100% - 56px) 50%;
+
+      &:after {
+        content: '';
+        width: 48px;
+        height: 48px;
+        background: url(/assets/ext.svg) no-repeat center right;
+      }
+
+      span {
+        display: block;
+        line-height: 1.4;
+      }
+
+      .title {
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+
+      .description {
+        text-decoration: underline;
+        font-size: 2rem;
+        font-weight: 800;
+      }
+    }
+  }
+}
+
 .notice {
   border: 4px solid black;
   padding: 16px;
+  text-align: center;
 
   p.heading {
     font-weight: bold;
@@ -136,9 +239,26 @@ ffconf-card {
   }
 }
 
+footer {
+  font-size: 1.5rem;
+
+  a {
+    font-weight: 800;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    margin: 16px 0;
+    line-height: 1.7;
+  }
+}
+
 @media screen and (min-width: 864px) {
   section.hero {
-    padding: 192px 96px;
+    padding: 100px 96px;
   }
   ffconf-card-holder {
     grid-template-columns: 1fr 1fr 1fr;
@@ -153,6 +273,31 @@ ffconf-card {
   }
 
   .logo {
-    flex-direction: row;
+    flex-direction: row-reverse;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .strap {
+    margin: 96px 0;
+  }
+
+  section .container {
+    padding: 96px 40px;
+  }
+
+  .hflex {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 96px 0;
+    h2 {
+      margin: 0;
+    }
+
+    p {
+      flex: 0.7;
+    }
   }
 }
