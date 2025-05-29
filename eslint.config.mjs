@@ -3,7 +3,7 @@ import css from '@eslint/css';
 import html from '@html-eslint/eslint-plugin';
 import compat from 'eslint-plugin-compat';
 
-const available = 2019;
+const available = 2022;
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [

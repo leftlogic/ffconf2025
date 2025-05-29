@@ -3,6 +3,7 @@
 }
 
 * {
+  box-sizing: border-box;
   color: #01001a;
   color: color(display-p3 0.0039 0 0.0941);
   font-feature-settings: 'liga' on, 'clig' off;
@@ -21,14 +22,14 @@ h1 {
 }
 
 p {
-  font-size: clamp(1.1375rem, 10vw, 1.5rem);
+  font-size: clamp(1.1375rem, 2vw, 1.5rem);
   line-height: 1.4;
   font-weight: 500;
 }
 
 .strap {
   font-weight: 700;
-  margin: 48px 0;
+  /* margin: 48px 0; */
   text-align: left;
   font-size: 32px;
   line-height: 32px;
@@ -36,7 +37,10 @@ p {
 }
 
 .logo {
-  margin-bottom: 48px;
+  /* margin-bottom: 48px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   time {
     font-weight: 800;
@@ -59,6 +63,12 @@ section {
   box-shadow: var(--p-boxed);
 }
 
+.hflex {
+  display: flex;
+  flex-direction: column; /* later it'll be row */
+  gap: 24px;
+}
+
 section.hero {
   /* background: #ffd000; */
   background-color: color(display-p3 1 0.83 0);
@@ -70,6 +80,7 @@ section.hero {
 
   .container {
     padding: 96px 40px;
+    gap: 48px;
   }
 }
 
@@ -83,13 +94,15 @@ section {
     font-weight: 800;
     line-height: 1.4;
     text-align: left;
-    margin: 80px 0;
   }
 
   .container {
     padding: 40px;
     max-width: 1096px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
   }
 }
 
@@ -108,7 +121,7 @@ section.info {
 }
 
 #logo {
-  width: 252px;
+  width: clamp(200px, 27vw, 400px);
 }
 
 ffconf-card-holder {
@@ -136,8 +149,11 @@ ffconf-card {
 
 .sponsors {
   display: flex;
+  flex-direction: column;
   gap: 24px;
   justify-content: space-between;
+  margin-top: 40px;
+  flex-wrap: wrap;
 
   .sponsor {
     padding: 40px 56px;
@@ -145,13 +161,7 @@ ffconf-card {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    min-height: 360px;
-    flex: 0.5;
-
-    &:not(&:has(img)) {
-      background: #fff url(/assets/ext.svg) no-repeat calc(100% - 56px)
-        calc(100% - 40px);
-    }
+    flex: 1;
 
     em {
       text-decoration: underline;
@@ -166,7 +176,9 @@ ffconf-card {
     img {
       /* align-content: space-between; */
       justify-self: center;
-      width: fit-content;
+      min-height: calc(100% - 64px);
+      width: 100%;
+      object-fit: fill;
     }
 
     .title {
@@ -177,6 +189,7 @@ ffconf-card {
     em {
       color: #778083;
       line-height: 1.4;
+      font-size: clamp(1rem, 4vw, 1.5rem);
     }
   }
 }
@@ -194,15 +207,7 @@ ffconf-card {
       text-decoration: none;
       display: block;
       box-shadow: var(--p-boxed);
-      padding: 40px 56px;
-      background: url(/assets/ext.svg) no-repeat calc(100% - 56px) 50%;
-
-      &:after {
-        content: '';
-        width: 48px;
-        height: 48px;
-        background: url(/assets/ext.svg) no-repeat center right;
-      }
+      padding: clamp(32px, 4vw, 40px) clamp(32px, 5vw, 56px);
 
       span {
         display: block;
@@ -210,13 +215,13 @@ ffconf-card {
       }
 
       .title {
-        font-size: 1.5rem;
+        font-size: clamp(1.13rem, 3vw, 1.5rem);
         font-weight: 500;
       }
 
       .description {
         text-decoration: underline;
-        font-size: 2rem;
+        font-size: clamp(1.75rem, 5vw, 2rem);
         font-weight: 800;
       }
     }
@@ -231,11 +236,12 @@ ffconf-card {
   p.heading {
     font-weight: bold;
     font-size: 2rem;
+    line-height: 1.1;
   }
 
   p {
     margin: 8px;
-    font-size: 1.5rem;
+    font-size: clamp(1.125rem, 4vw, 1.5rem);
   }
 }
 
@@ -256,22 +262,44 @@ footer {
   }
 }
 
-@media screen and (min-width: 864px) {
-  section.hero {
-    padding: 100px 96px;
-  }
+@media screen and (min-width: 768px) {
   ffconf-card-holder {
-    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
   }
 
-  #logo {
-    width: 400px;
+  .sponsors {
+    flex-direction: row;
   }
 
-  ffconf-card {
-    padding: 48px;
+  .sponsor {
+    &:not(&:has(img)) {
+      background: #fff url(/assets/ext.svg) no-repeat calc(100% - 56px)
+        calc(100% - 40px);
+    }
   }
 
+  .card-links a {
+    background: url(/assets/ext.svg) no-repeat calc(100% - 56px) 50%;
+  }
+
+  .hflex {
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 96px 0;
+    h2 {
+      line-height: 1;
+    }
+
+    p {
+      flex: 0.7;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
   .logo {
     flex-direction: row-reverse;
     display: flex;
@@ -279,25 +307,38 @@ footer {
     justify-content: space-between;
   }
 
+  section .container > h2 {
+    margin: 80px 0;
+  }
+}
+
+@media screen and (min-width: 864px) {
+  section.hero {
+    padding: 100px 96px;
+    .container {
+      gap: 96px;
+    }
+  }
+  ffconf-card-holder {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  ffconf-card {
+    padding: 48px;
+  }
+
   .strap {
-    margin: 96px 0;
+    /* margin: 96px 0; */
+    font-size: 2.5rem;
+    line-height: 1;
   }
 
   section .container {
     padding: 96px 40px;
   }
 
-  .hflex {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin: 96px 0;
-    h2 {
-      margin: 0;
-    }
-
-    p {
-      flex: 0.7;
-    }
+  .sponsor {
+    height: 360px;
+    flex: 0.5;
   }
 }
