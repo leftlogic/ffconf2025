@@ -1,0 +1,23 @@
+{
+  "name": "ffconf2025",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint:css": "npx eslint *.css",
+    "lint:html": "npx eslint *.html",
+    "lint:js": "npx eslint *.js"
+  },
+  "devDependencies": {
+    "@eslint/css": "^0.8.1",
+    "@html-eslint/eslint-plugin": "^0.39.0",
+    "@html-eslint/parser": "^0.39.0",
+    "browserslist-config-baseline": "^0.4.0",
+    "eslint": "^9.25.1",
+    "eslint-plugin-compat": "^6.0.2",
+    "globals": "^16.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
