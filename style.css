@@ -70,7 +70,7 @@ section {
 }
 
 section.hero {
-  /* background: #ffd000; */
+  background: #ffd000;
   background-color: color(display-p3 1 0.83 0);
   background-image: url(/assets/floor.svg), url(/assets/sep2.svg);
   background-repeat: no-repeat no-repeat;
@@ -117,6 +117,7 @@ section.schedule {
 
 section.info {
   background-color: #ff8359;
+  background-color: color(display-p3 1 0.51 0.349);
   background-image: url(/assets/floor-info.svg);
 }
 
