@@ -276,22 +276,45 @@ ffconf-card {
       font-size: clamp(1.13rem, 5vw, 1.5rem);
     }
     
-    div {
+    .details {
       padding: clamp(32px, 6vw, 56px);
       gap: clamp(40px, 4vw, 56px);
       display: flex;
       flex-direction: column;
     }
     
-    img {
+    .speaker-image {
       grid-column-start: 1;
       grid-row-start: 1;
       width: 100%;
       /* height: 260px; */
       object-fit: contain;
       align-self: flex-start;
+
+      /* via the wonderful ana */
+      --w: Min(calc(100vw - 1.5em), 30em);
+      --w: 260px;
+      --h: calc(1.5*var(--w));
+      --h: 260px;
+      display: block;
+      --pattern: linear-gradient(#000, #fff) 0/ 1% 0.25em;
+      --lyr1: var(--pattern);
+
+      div {
+        position: relative;
+        width: var(--w);
+        height: var(--h);
+        background: var(--img) , var(--lyr1,  );
+        filter: contrast(19);
+        background-blend-mode: screen;
+        --img: var(--p-image-url) 50%/cover;
+      }
     }
   }
+}
+
+[data-speaker="olo"] {
+  --p-image-url: url(/assets/speakers/olo-2024.jpg);
 }
 
 footer {
@@ -356,7 +379,7 @@ footer {
       grid-template-columns: 1fr 260px;
       grid-template-rows: 1fr;
 
-      img {
+      .speaker-image {
         grid-column-start: 2;
       }
     }
