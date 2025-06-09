@@ -82,11 +82,12 @@ section.hero {
   background: #ffd000;
   background-color: color(display-p3 1 0.83 0);
   background-image: url(/assets/floor.svg), url(/assets/sep2.svg);
-  background-repeat: no-repeat no-repeat;
-  background-position: bottom center, top left;
-  background-size: 100% clamp(164px, 50vw, 300px),
-    100% clamp(160px, 47vw, 256px);
-
+  background-repeat: no-repeat, no-repeat;
+  background-position: bottom center, top center;
+  /* background-size: 100% clamp(164px, 50vw, 300px), */
+    /* 100% clamp(160px, 47vw, 256px); */
+  background-size: contain;
+  
   .container {
     padding: 96px 40px;
     gap: 48px;
@@ -97,6 +98,7 @@ section {
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: 100% clamp(164px, 50vw, 300px);
+  background-size: contain;
 
   h2 {
     font-size: clamp(2.5rem, 10vw, 72px);
@@ -124,6 +126,12 @@ section.schedule {
   }
 }
 
+
+section.speaker {
+  background-color: #6767ff;
+  background-image: url(/assets/floor-speaker.svg);
+}
+
 section.info {
   background-color: #ff8359;
   background-color: color(display-p3 1 0.51 0.349);
@@ -132,6 +140,23 @@ section.info {
 
 #logo {
   width: clamp(200px, 27vw, 400px);
+}
+
+
+#speaker * {
+  color: white;
+  h1 {
+    font-size: clamp(1.5rem, 30vw, 3rem);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin: 8px 0;
+  }
+
+  .container {
+    padding: 56px;
+  }
 }
 
 ffconf-card-holder {
@@ -291,30 +316,25 @@ ffconf-card {
       object-fit: contain;
       align-self: flex-start;
 
-      /* via the wonderful ana */
-      --w: Min(calc(100vw - 1.5em), 30em);
-      --w: 260px;
-      --h: calc(1.5*var(--w));
-      --h: 260px;
+      /* via the wonderful Ana Tudor: https://ko-fi.com/anatudor */
       display: block;
-      --pattern: linear-gradient(#000, #fff) 0/ 1% 0.25em;
-      --lyr1: var(--pattern);
-
+      --pattern: linear-gradient(#848484, #000000) 0/ 1% 0.2em;
+      
       div {
         position: relative;
-        width: var(--w);
-        height: var(--h);
-        background: var(--img) , var(--lyr1,  );
-        filter: contrast(19);
-        background-blend-mode: screen;
+        width: 260px;
+        height: 260px;
+        background: var(--img), var(--pattern);
+        filter: contrast(2);
+        background-blend-mode: color-dodge;
         --img: var(--p-image-url) 50%/cover;
       }
     }
   }
 }
 
-[data-speaker="olo"] {
-  --p-image-url: url(/assets/speakers/olo-2024.jpg);
+[data-speaker="hannah"] {
+  --p-image-url: url(/assets/speakers/hannah-duo.jpg);
 }
 
 footer {
