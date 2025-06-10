@@ -68,7 +68,7 @@ a.boxed {
 }
 
 a.boxed:hover {
-  box-shadow: 4px 4px 0 0 #01001a inset, 20px 16px 0 0 #01001a, 
+  box-shadow: 4px 4px 0 0 #01001a inset, 20px 16px 0 0 #01001a,
     4px 4px 0 0 #01001a inset, 4px 4px 0 0 #01001a;
 }
 
@@ -85,9 +85,9 @@ section.hero {
   background-repeat: no-repeat, no-repeat;
   background-position: bottom center, top center;
   /* background-size: 100% clamp(164px, 50vw, 300px), */
-    /* 100% clamp(160px, 47vw, 256px); */
+  /* 100% clamp(160px, 47vw, 256px); */
   background-size: contain;
-  
+
   .container {
     padding: 96px 40px;
     gap: 48px;
@@ -126,7 +126,6 @@ section.schedule {
   }
 }
 
-
 section.speaker {
   background-color: #6767ff;
   background-image: url(/assets/floor-speaker.svg);
@@ -142,20 +141,47 @@ section.info {
   width: clamp(200px, 27vw, 400px);
 }
 
+#speaker {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  min-height: 100vh;
 
-#speaker * {
-  color: white;
-  h1 {
-    font-size: clamp(1.5rem, 30vw, 3rem);
+  a {
+    color: white;
+    font-weight: 800;
   }
 
-  h2 {
-    font-size: 1.5rem;
-    margin: 8px 0;
+  .speaker {
+    padding: 0;
+    min-height: 100vh;
   }
 
-  .container {
-    padding: 56px;
+  .speaker-info-container {
+    padding: clamp(12px, 4vw, 32px);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  * {
+    color: white;
+    h1 {
+      font-size: clamp(2rem, 10vw, 3rem);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    & > div:last-child {
+      padding-bottom: 90px;
+    }
   }
 }
 
@@ -189,7 +215,6 @@ ffconf-card {
   justify-content: space-between;
   /* margin-top: 40px; */
   flex-wrap: wrap;
-  
 
   .sponsor {
     padding: 32px;
@@ -243,7 +268,7 @@ ffconf-card {
       text-decoration: none;
       display: block;
       padding: clamp(32px, 4vw, 40px) clamp(32px, 5vw, 56px);
-      
+
       span {
         display: block;
         line-height: 1.4;
@@ -300,14 +325,14 @@ ffconf-card {
       font-weight: 500;
       font-size: clamp(1.13rem, 5vw, 1.5rem);
     }
-    
+
     .details {
       padding: clamp(32px, 6vw, 56px);
       gap: clamp(40px, 4vw, 56px);
       display: flex;
       flex-direction: column;
     }
-    
+
     .speaker-image {
       grid-column-start: 1;
       grid-row-start: 1;
@@ -319,7 +344,7 @@ ffconf-card {
       /* via the wonderful Ana Tudor: https://ko-fi.com/anatudor */
       display: block;
       --pattern: linear-gradient(#848484, #000000) 0/ 1% 0.2em;
-      
+
       div {
         position: relative;
         width: 260px;
@@ -327,15 +352,24 @@ ffconf-card {
         background: var(--img), var(--pattern);
         filter: contrast(2);
         background-blend-mode: color-dodge;
-        --img: var(--p-image-url) 50%/cover;
+        --img: var(--p-image-url) 50% / cover;
       }
     }
   }
 }
 
-[data-speaker="hannah"] {
+[data-speaker='hannah'] {
   --p-image-url: url(/assets/speakers/hannah-duo.jpg);
 }
+
+[data-speaker='hellen'] {
+  --p-image-url: url(/assets/speakers/hellen-duo.jpg);
+}
+
+[data-speaker='serges'] {
+  --p-image-url: url(/assets/speakers/serges-duo.jpg);
+}
+
 
 footer {
   font-size: 1.5rem;
@@ -355,6 +389,32 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
+  #speaker {
+    flex-direction: row-reverse;
+    /* align-items: stretch; */
+    align-items: center;
+    justify-content: start;
+
+    img {
+      object-fit: cover;
+      position: fixed;
+      top: 0;
+      right: 0;
+      position: fixed;
+      height: 100vh;
+      width: 45vw;
+    }
+
+    .speaker-info-container {
+      width: 55vw;
+    }
+
+    & > div:first-of-type {
+      overflow-y: auto;
+      min-height: 100vh;
+    }
+  }
+
   ffconf-card-holder {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -367,7 +427,7 @@ footer {
     .sponsor {
       padding: 40px 56px;
       flex: 0.5;
-      
+
       &:not(&:has(img)) {
         background: #fff url(/assets/ext.svg) no-repeat calc(100% - 56px)
           calc(100% - 40px);
@@ -384,7 +444,7 @@ footer {
     flex-direction: row;
     justify-content: space-between;
     margin: clamp(40px, 10vw, 96px) 0;
-    
+
     h2 {
       line-height: 1;
     }
@@ -395,6 +455,10 @@ footer {
   }
 
   .sessions {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    
     li {
       grid-template-columns: 1fr 260px;
       grid-template-rows: 1fr;
@@ -403,6 +467,9 @@ footer {
         grid-column-start: 2;
       }
     }
+  ;
+    display: flex;
+    display: f;
   }
 }
 
@@ -436,7 +503,6 @@ footer {
     flex: 0.5;
   }
 }
-
 
 @media screen and (min-width: 1024px) {
   .logo {
