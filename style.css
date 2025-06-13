@@ -327,6 +327,7 @@ ffconf-card {
       font-size: clamp(1.75rem, 4vw, 2.5rem);
       font-weight: 800;
       text-wrap: balance;
+      display: inline-block;
     }
 
     .speaker-name {
