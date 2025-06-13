@@ -305,8 +305,16 @@ ffconf-card {
   }
 }
 
+.tags {
+  font-size: 1.2rem;
+  color: #778083;
+}
+
 .sessions {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(32px, 3vw, 56px);
 
   li {
     display: grid;
@@ -315,9 +323,10 @@ ffconf-card {
     align-items: center;
     grid-template-rows: 1fr auto;
 
-    a {
+    h3 a {
       font-size: clamp(1.75rem, 4vw, 2.5rem);
       font-weight: 800;
+      text-wrap: balance;
     }
 
     .speaker-name {
@@ -327,8 +336,8 @@ ffconf-card {
     }
 
     .details {
-      padding: clamp(32px, 6vw, 56px);
-      gap: clamp(40px, 4vw, 56px);
+      padding: clamp(24px, 6vw, 56px);
+      gap: clamp(32px, 3vw, 56px);
       display: flex;
       flex-direction: column;
     }
@@ -337,7 +346,7 @@ ffconf-card {
       grid-column-start: 1;
       grid-row-start: 1;
       width: 100%;
-      /* height: 260px; */
+      height: 100%;
       object-fit: contain;
       align-self: flex-start;
 
@@ -347,9 +356,11 @@ ffconf-card {
 
       div {
         position: relative;
-        width: 260px;
+        height: 100%;
         height: 260px;
         background: var(--img), var(--pattern);
+        background-repeat: repeat;
+        background-size: 256px;
         filter: contrast(2);
         background-blend-mode: color-dodge;
         --img: var(--p-image-url) 50% / cover;
@@ -370,7 +381,6 @@ ffconf-card {
   --p-image-url: url(/assets/speakers/serges-duo.jpg);
 }
 
-
 footer {
   font-size: 1.5rem;
 
@@ -389,6 +399,11 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
+  .sessions li .speaker-image div {
+    width: 260px;
+    height: 100%;
+  }
+
   #speaker {
     flex-direction: row-reverse;
     /* align-items: stretch; */
@@ -458,8 +473,8 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 32px;
-    
-    li {
+
+    li:not(.info) {
       grid-template-columns: 1fr 260px;
       grid-template-rows: 1fr;
 
@@ -467,9 +482,6 @@ footer {
         grid-column-start: 2;
       }
     }
-  ;
-    display: flex;
-    display: f;
   }
 }
 

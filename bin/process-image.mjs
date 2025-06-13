@@ -24,7 +24,7 @@ const duotoneColour = '#6767FF';
 // Create greyscale base image
 const greyscaleBuffer = await sharp(inputPath)
   .greyscale()
-  .resize(367, 367, { fit: 'cover' })
+  .resize(734, 734, { fit: 'cover' })
   .png()
   .toBuffer();
 
@@ -35,8 +35,6 @@ const g = parseInt(hex.substr(2, 2), 16);
 const b = parseInt(hex.substr(4, 2), 16);
 
 // Apply duotone effect using tint
-await sharp(greyscaleBuffer)
-  .tint({ r, g, b })
-  .toFile(outputPath);
+await sharp(greyscaleBuffer).tint({ r, g, b }).toFile(outputPath);
 
 console.log(`Processed image saved as ${outputPath}`);
