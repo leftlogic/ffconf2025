@@ -210,7 +210,19 @@
           </ul>
         </nav>
       </footer>
-
+      <script>
+        document.querySelectorAll('.sessions a').forEach(link => {
+          const url = link.href;
+          link.addEventListener('click', e => {
+            // Only intercept same-origin internal links
+            if (location.origin !== new URL(url).origin) return;
+            e.preventDefault();
+            document.startViewTransition(() => {
+              window.location.href = url;
+            });
+          });
+        });
+      </script>
       <!-- nope, no tracking here today. -->
   </body>
 
