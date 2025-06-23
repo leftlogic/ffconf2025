@@ -24,6 +24,9 @@
     <meta property="og:title" content="ffconf 🌟 UK web conference since 2009">
     <meta property="og:description" content="ffconf - the UK's best JavaScript and Web conference in Brighton.">
     <link rel="stylesheet" href="./style.css">
+    <script defer data-domain="2025.ffconf.org" src="https://plausible.io/js/script.outbound-links.js"></script>
+    <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
   </head>
 
   <body>
@@ -211,7 +214,7 @@
         </nav>
       </footer>
       <script>
-        document.querySelectorAll('.sessions a').forEach(link => {
+        if (document.startViewTransition) document.querySelectorAll('.sessions a').forEach(link => {
           const url = link.href;
           link.addEventListener('click', e => {
             // Only intercept same-origin internal links
@@ -223,7 +226,7 @@
           });
         });
       </script>
-      <!-- nope, no tracking here today. -->
+
   </body>
 
 </html>
