@@ -1,5 +1,7 @@
 :root {
   --p-boxed: 4px 4px 0px 0px #01001a inset, 4px 4px 0px 0px #01001a;
+  --c-gold: #ffd000;
+  --c-gold-p3: color(display-p3 1 0.83 0);
 }
 
 .sessions li {
@@ -40,6 +42,10 @@
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+when-do:empty {
+  display: none;
 }
 
 * {
@@ -122,9 +128,41 @@ a.boxed:hover {
   gap: 24px;
 }
 
+body {
+  background: var(--c-gold);
+  background-color: var(--c-gold-p3);
+}
+
+body:before {
+  content: '';
+  background-image: url(/assets/sep2.svg);
+  display: block;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+  width: 100vw;
+  height: clamp(160px, 47vw, 344px);
+  position: absolute;
+  z-index: 0;
+}
+
 section.hero {
-  background: #ffd000;
-  background-color: color(display-p3 1 0.83 0);
+  position: relative;
+  z-index: 1;
+  background-image: url(/assets/floor.svg);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
+
+  .container {
+    padding: 96px 40px;
+    gap: 48px;
+  }
+}
+
+section._hero {
+  background: var(--c-gold);
+  background-color: var(--c-gold-p3);
   background-image: url(/assets/floor.svg), url(/assets/sep2.svg);
   background-repeat: no-repeat, no-repeat;
   background-position: bottom center, top center;
@@ -136,6 +174,10 @@ section.hero {
     padding: 96px 40px;
     gap: 48px;
   }
+}
+
+section.footer {
+  background: white;
 }
 
 section {
@@ -341,15 +383,52 @@ ffconf-card {
   }
 }
 
+.tickets {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 .notice {
   border: 4px solid black;
   padding: 16px;
   text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  min-height: 140px;
+  background: var(--c-gold);
+  background: var(--c-gold-p3);
+
+  &.cta {
+    background: black;
+    color: var(--c-gold);
+    color: var(--c-gold-p3);
+    transition: box-shadow 150ms;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 2rem;
+    line-height: 1.1;
+    z-index: 10;
+
+    &:hover {
+      box-shadow: 15px 12px 0 0 #282100;
+    }
+  }
 
   p.heading {
     font-weight: bold;
     font-size: 2rem;
     line-height: 1.1;
+    color: inherit;
+
+    small {
+      font-weight: inherit;
+      font-size: 1.2rem;
+    }
   }
 
   p {
@@ -457,6 +536,19 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
+  .tickets {
+    flex-direction: row;
+    .notice {
+      &:first-child {
+        margin-bottom: 40px;
+      }
+
+      &:last-child {
+        margin-left: -40px;
+        margin-top: 40px;
+      }
+    }
+  }
   .sessions li .speaker-image div {
     width: 260px;
     height: 100%;
