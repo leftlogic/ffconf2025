@@ -144,7 +144,8 @@ section {
   background-size: 100% clamp(164px, 50vw, 300px);
   background-size: contain;
 
-  h2 {
+  h2,
+  h3 {
     font-size: clamp(2.5rem, 10vw, 72px);
     font-weight: 800;
     line-height: 1.4;
@@ -165,7 +166,8 @@ section.schedule {
   background-color: #6767ff;
   background-image: url(/assets/floor-schedule.svg);
 
-  h2 {
+  h2,
+  h3 {
     color: white;
   }
 }
@@ -219,8 +221,13 @@ section.info {
       font-size: clamp(2rem, 10vw, 3rem);
     }
 
-    h2 {
+    h2,
+    h3 {
       font-size: 1.5rem;
+    }
+
+    h3 {
+      font-wight: 400;
     }
 
     & > div:last-child {
@@ -424,6 +431,10 @@ ffconf-card {
 
 [data-speaker='serges'] {
   --p-image-url: url(/assets/speakers/serges-duo.jpg);
+}
+
+[data-speaker='jessica-eda'] {
+  --p-image-url: url(/assets/speakers/jessica-eda-duo.jpg);
 }
 
 footer {
