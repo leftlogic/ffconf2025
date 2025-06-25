@@ -227,7 +227,8 @@ section.info {
     }
 
     h3 {
-      font-wight: 400;
+      font-weight: 500;
+      font-style: italic;
     }
 
     & > div:last-child {
