@@ -133,7 +133,7 @@ body {
   background-color: var(--c-gold-p3);
 }
 
-body:before {
+#index body:before {
   content: '';
   background-image: url(/assets/sep2.svg);
   display: block;
