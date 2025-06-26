@@ -138,7 +138,8 @@ body:before {
   background-image: url(/assets/sep2.svg);
   display: block;
   background-repeat: no-repeat;
-  background-size: 100% auto;
+  /* background-size: 100% auto; */
+  background-size: 100% clamp(160px, 47vw, 344px);
   background-position: top center;
   width: 100vw;
   height: clamp(160px, 47vw, 344px);
