@@ -311,13 +311,6 @@ ffconf-card {
   justify-content: space-between;
   /* margin-top: 40px; */
   flex-wrap: wrap;
-  
-  
-  
-  
-  
-  
-  
 
   .sponsor {
     padding: 32px;
@@ -342,7 +335,7 @@ ffconf-card {
       justify-self: center;
       min-height: calc(100% - 64px);
       width: 100%;
-      object-fit: fill;
+      object-fit: contain;
     }
 
     .title {
@@ -596,15 +589,6 @@ footer {
 
   .sponsors {
     grid-template-columns: 1fr 1fr;
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     .sponsor {
       padding: 40px 56px;
