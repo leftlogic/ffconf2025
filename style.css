@@ -4,6 +4,10 @@
   --c-gold-p3: color(display-p3 1 0.83 0);
 }
 
+[hidden] {
+  display: none !important;
+}
+
 .sessions li {
   view-transition-name: speaker-content;
 }

@@ -7,6 +7,11 @@
  *
  * 2023-07-14
  * - supports show, hide and scroll into view
+ * 2025-07-31
+ * - supports show="timestamp" and hide="timestamp" properties for time-based visibility
+ * - show+hide: visible only between timestamps
+ * - show only: hidden until timestamp passes
+ * - hide only: visible until timestamp passes
  */
 
 /**
@@ -52,12 +57,23 @@ setInterval(() => {
   // FIXME - go through "whenables" in order of timestamp
   for (let i = 0; i < whenables.length; i++) {
     const when = whenables[i];
-    const inRange = when.inRange();
-
-    if (inRange) {
-      when[when.do]();
+    
+    if (when.useTimestampLogic) {
+      // New timestamp-based logic: show/hide based on shouldBeVisible
+      if (when.shouldBeVisible()) {
+        when.show();
+      } else {
+        when.hide();
+      }
     } else {
-      when[when.do === DO_OPTIONS.HIDE ? DO_OPTIONS.SHOW : DO_OPTIONS.HIDE]();
+      // Legacy datetime/do attribute logic
+      const inRange = when.inRange();
+
+      if (inRange) {
+        when[when.do]();
+      } else {
+        when[when.do === DO_OPTIONS.HIDE ? DO_OPTIONS.SHOW : DO_OPTIONS.HIDE]();
+      }
     }
   }
 }, 1000);
@@ -69,30 +85,70 @@ class WhenDo extends HTMLElement {
   constructor() {
     const ref = super();
 
-    /** @type {keyof typeof DO_OPTIONS} */
-    this.do = this.attributes.do.value || DO_OPTIONS.SHOW;
+    // Check for new show/hide timestamp attributes
+    const showAttr = this.attributes.show?.value;
+    const hideAttr = this.attributes.hide?.value;
 
-    if (
-      ![DO_OPTIONS.SHOW, DO_OPTIONS.HIDE, DO_OPTIONS.SCROLL].includes(this.do)
-    ) {
-      throw new Error(
-        `when-do "do" property requires either "show", "hide" or "scroll"`
-      );
-    }
+    if (showAttr || hideAttr) {
+      // New timestamp-based visibility logic
+      this.showTimestamp = showAttr ? new Date(showAttr).getTime() : null;
+      this.hideTimestamp = hideAttr ? new Date(hideAttr).getTime() : null;
+      this.useTimestampLogic = true;
+    } else {
+      // Legacy datetime/do attribute logic
+      /** @type {keyof typeof DO_OPTIONS} */
+      this.do = this.attributes.do.value || DO_OPTIONS.SHOW;
 
-    if (this.attributes.datetime?.value) {
-      this.dates = parse(this.attributes.datetime.value);
+      if (
+        ![DO_OPTIONS.SHOW, DO_OPTIONS.HIDE, DO_OPTIONS.SCROLL].includes(this.do)
+      ) {
+        throw new Error(
+          `when-do "do" property requires either "show", "hide" or "scroll"`
+        );
+      }
+
+      if (this.attributes.datetime?.value) {
+        this.dates = parse(this.attributes.datetime.value);
+      }
+
+      this.useTimestampLogic = false;
     }
 
     // FIXME queue up the animations/scroll from boot time
 
-    if (this.inRange()) {
-      this[this.do]();
+    if (this.shouldBeVisible()) {
+      this.show();
     } else {
-      this[this.do === DO_OPTIONS.HIDE ? DO_OPTIONS.SHOW : DO_OPTIONS.HIDE]();
+      this.hide();
     }
 
     whenables.push(ref);
+  }
+
+  shouldBeVisible() {
+    if (this.useTimestampLogic) {
+      const now = Date.now();
+      
+      // If both show and hide are set: show only between the time window
+      if (this.showTimestamp && this.hideTimestamp) {
+        return now >= this.showTimestamp && now < this.hideTimestamp;
+      }
+      
+      // If only show is set: hidden until timestamp passes
+      if (this.showTimestamp && !this.hideTimestamp) {
+        return now >= this.showTimestamp;
+      }
+      
+      // If only hide is set: shown until timestamp passes
+      if (!this.showTimestamp && this.hideTimestamp) {
+        return now < this.hideTimestamp;
+      }
+      
+      return false;
+    } else {
+      // Legacy logic: use inRange with do attribute
+      return this.inRange();
+    }
   }
 
   inRange() {
