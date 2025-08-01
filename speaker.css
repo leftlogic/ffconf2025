@@ -1,0 +1,50 @@
+#speaker {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  min-height: 100vh;
+
+  a {
+    color: white;
+    font-weight: 800;
+  }
+
+  .speaker {
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  .speaker-info-container {
+    padding: clamp(12px, 4vw, 32px);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  * {
+    color: white;
+    h1 {
+      font-size: clamp(2rem, 10vw, 3rem);
+    }
+
+    h2,
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    h3 {
+      font-weight: 700;
+      font-style: italic;
+    }
+
+    & > div:last-child {
+      padding-bottom: 90px;
+    }
+  }
+}

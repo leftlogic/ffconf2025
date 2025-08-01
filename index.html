@@ -9,12 +9,6 @@
     <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
     <link rel="manifest" href="/assets/manifest.json" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap"
-      rel="stylesheet">
-    <!-- <link rel="manifest" href="/manifest.json"> -->
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="theme-color" content="#000000">
     <meta name="twitter:card" content="summary_large_image">
@@ -23,7 +17,7 @@
     <meta property="og:url" content="https://2025.ffconf.org/">
     <meta property="og:title" content="ffconf 🌟 UK web conference since 2009">
     <meta property="og:description" content="ffconf - the UK's best JavaScript and Web conference in Brighton.">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.min.css">
     <script defer data-domain="2025.ffconf.org" src="https://plausible.io/js/script.outbound-links.js"></script>
     <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
   </head>
@@ -40,12 +34,64 @@
           </header>
         </div>
         <when-do show="2025-08-01T00:00:00Z">
-          <div class="tickets">
-            <div class="notice">
+          <div>
+            <div class="notice cta">
               <p class="heading">Ticket sales closed for&nbsp;summer</p>
-              <p>Re-opening September 4th at 11am</p>
+              <p>Re-opening in September</p>
             </div>
-            <a href="https://ffconf.org/news/" class="notice cta button">Get notified of new tickets</a>
+
+            <form id="newsletter" class="notice">
+              <p>Get notified of new tickets &amp; speakers</p>
+              <div style="position: absolute !important;left: -999em !important;">
+                <label for="name">We use the following field to detect spam bots. If you fill this in, your subscription
+                  will be ignored. If you're using a voice over assistant make sure to exit the following text field and
+                  move to the "name" field.</label>
+                <input type="text" id="name" name="name" autocomplete="off">
+              </div>
+
+              <div class="grid">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" placeholder="Your email address" required>
+
+                <label for="first_name">Name</label>
+                <input type="text" placeholder="Your name" name="first_name" id="first_name" required>
+
+                <input hidden="" name="last_name" value="">
+
+                <input type="submit" value="Notify me">
+              </div>
+            </form>
+            <script>
+                (() => {
+                  const target = 'https://mail.leftlogic.com/subscribe/6784a6a3-4975-409d-975b-64df4672ca9c';
+                  const form = document.querySelector('#newsletter');
+
+                  form.addEventListener('submit', (event) => {
+                    if (form.method === 'post') {
+                      return;
+                    }
+
+                    const spamCheck = form.querySelector('[name="name"]');
+                    const firstName = form.querySelector('[name="first_name"]');
+                    const lastName = form.querySelector('[name="last_name"]');
+
+                    if (spamCheck.value || lastName.value) {
+                      // falls into the thanks page ignoring the submit
+                      return;
+                    }
+
+                    event.preventDefault();
+
+                    let [first, ...last] = firstName.value.split(' ');
+                    lastName.value = last.join(' ');
+                    firstName.value = first;
+
+                    form.method = 'post';
+                    form.action = target;
+                    form.submit();
+                  });
+                })();
+            </script>
           </div>
         </when-do>
         <when-do show="2025-06-26T10:00:00Z" hide="2025-08-01T00:00:00Z">
@@ -71,9 +117,7 @@
           the web, and who want their ideas challenged.</p>
 
         <div id="what-to-expect">
-
           <ffconf-card-holder>
-
             <ffconf-card class="boxed">
               <img alt="" src="/assets/weather.svg">
               <p>Located in <strike>sunny</strike> Brighton, UK</p>
@@ -99,14 +143,12 @@
               <p>After party to network & play</p>
             </ffconf-card>
           </ffconf-card-holder>
-
         </div>
       </div>
     </section>
     <section class="schedule">
       <div class="container">
         <h2>Sessions</h2>
-
         <ul class="sessions">
           <li class="ffconf-session boxed" data-id="1" data-order="1" id="1">
             <div class="details">
@@ -147,7 +189,6 @@
               <div></div>
             </div>
           </li>
-
           <li class="ffconf-session boxed" data-id="4" data-order="4" id="4">
             <div class="details">
               <h3><a href="/jessica-eda.html">Forgetting Machines: AI Coding Tools and Skill</a></h3>
@@ -161,7 +202,6 @@
               <div></div>
             </div>
           </li>
-
           <li class="ffconf-session boxed info" data-id="more" data-order="more">
             <div class="details">
               <p>More of our 8 speakers to be <a href="https://ffconf.org/news">announced</a> soon. Our <a
@@ -232,10 +272,7 @@
             <span class="description">If you would like your company to be a sponsor, please <em>request a sponsorship
                 pack</em> today.</span>
           </a>
-
-
         </div>
-
       </div>
     </section>
 
@@ -253,20 +290,6 @@
           </ul>
         </nav>
       </footer>
-      <script>
-        if (document.startViewTransition) document.querySelectorAll('.sessions a').forEach(link => {
-          const url = link.href;
-          link.addEventListener('click', e => {
-            // Only intercept same-origin internal links
-            if (location.origin !== new URL(url).origin) return;
-            e.preventDefault();
-            document.startViewTransition(() => {
-              window.location.href = url;
-            });
-          });
-        });
-      </script>
-
   </body>
 
 </html>
