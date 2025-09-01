@@ -490,31 +490,6 @@ footer {
     height: 100%;
   }
 
-  #speaker {
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: start;
-
-    img {
-      object-fit: cover;
-      position: fixed;
-      top: 0;
-      right: 0;
-      position: fixed;
-      height: 100vh;
-      width: 45vw;
-    }
-
-    .speaker-info-container {
-      width: 55vw;
-    }
-
-    & > div:first-of-type {
-      overflow-y: auto;
-      min-height: 100vh;
-    }
-  }
-
   ffconf-card-holder {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -570,7 +545,6 @@ footer {
   }
 }
 
-
 .notice + form.notice {
   margin-top: 40px;
 }
@@ -585,7 +559,6 @@ form.notice {
     margin: 0;
     font-weight: 700;
   }
-
 
   div {
     display: flex;
@@ -628,7 +601,7 @@ form.notice {
     border-radius: 4px;
     font-size: inherit;
     margin-bottom: 12px;
-    
+
     &:hover {
       background: white;
     }
@@ -652,27 +625,27 @@ form.notice {
     input {
       margin-bottom: 0px;
     }
-  
+
     label {
       grid-area: B;
     }
-  
+
     label:first-of-type {
       grid-area: A;
     }
-  
+
     input[type='email'] {
       grid-area: C;
     }
-  
+
     input[type='text'] {
       grid-area: D;
     }
-  
+
     input[type='submit'] {
       grid-area: E;
     }
-  
+
     gap: 20px;
     row-gap: 8px;
   }
@@ -681,7 +654,6 @@ form.notice {
     padding: 20px 40px;
     width: fit-content;
   }
-  
 }
 
 @media screen and (min-width: 864px) {

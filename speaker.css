@@ -3,7 +3,9 @@
   flex-direction: column;
   gap: 0;
   position: relative;
+  background: #6767ff;
   min-height: 100vh;
+  
 
   a {
     color: white;
@@ -45,6 +47,33 @@
 
     & > div:last-child {
       padding-bottom: 90px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #speaker {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: start;
+
+    img {
+      object-fit: cover;
+      position: fixed;
+      top: 0;
+      right: 0;
+      position: fixed;
+      height: 100vh;
+      width: 45vw;
+    }
+
+    .speaker-info-container {
+      width: 55vw;
+    }
+
+    & > div:first-of-type {
+      overflow-y: auto;
+      min-height: 100vh;
     }
   }
 }
