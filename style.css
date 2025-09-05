@@ -698,3 +698,9 @@ form.notice {
     margin: 80px 0;
   }
 }
+
+.tickets-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

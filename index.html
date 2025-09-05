@@ -33,96 +33,97 @@
             <time>14th Nov 2025</time>
           </header>
         </div>
-        <when-do show="2025-09-04T10:00:00Z">
-          <div class="tickets">
-            <a href="https://app.tickettailor.com/checkout/view-event/id/6028948/chk/fe2b/"
-              class="notice cta button">Buy your ticket</a>
-            <div class="notice">
-              <p class="heading">£249<small>+VAT</small></p>
-              <p>Limited standard rate tickets</p>
-            </div>
-          </div>
-        </when-do>
-        <when-do show="2025-08-01T00:00:00Z" hide="2025-08-03T23:59:59Z">
-          <div>
-            <div class="notice cta">
-              <p class="heading">Ticket sales closed for&nbsp;summer</p>
-              <p>Re-opening in September</p>
-            </div>
-
-            <form id="newsletter" class="notice">
-              <p>Get notified of new tickets &amp; speakers</p>
-              <div style="position: absolute !important;left: -999em !important;">
-                <label for="name">We use the following field to detect spam bots. If you fill this in, your subscription
-                  will be ignored. If you're using a voice over assistant make sure to exit the following text field and
-                  move to the "name" field.</label>
-                <input type="text" id="name" name="name" autocomplete="off">
+        <div class="tickets-holder">
+          <when-do show="2025-09-04T10:00:00Z">
+            <div class="tickets">
+              <a href="https://app.tickettailor.com/checkout/view-event/id/6028948/chk/fe2b/"
+                class="notice cta button">Buy your ticket</a>
+              <div class="notice">
+                <p class="heading">£249<small>+VAT</small></p>
+                <p>Limited standard rate tickets</p>
               </div>
-
-              <div class="grid">
-                <label for="email">Email address</label>
-                <input type="email" id="email" name="email" placeholder="Your email address" required>
-
-                <label for="first_name">Name</label>
-                <input type="text" placeholder="Your name" name="first_name" id="first_name" required>
-
-                <input hidden="" name="last_name" value="">
-
-                <input type="submit" value="Notify me">
+            </div>
+          </when-do>
+          <when-do show="2025-08-01T00:00:00Z" hide="2025-08-03T23:59:59Z">
+            <div>
+              <div class="notice cta">
+                <p class="heading">Ticket sales closed for&nbsp;summer</p>
+                <p>Re-opening in September</p>
               </div>
-            </form>
-            <script>
-                (() => {
-                  const target = 'https://mail.leftlogic.com/subscribe/6784a6a3-4975-409d-975b-64df4672ca9c';
-                  const form = document.querySelector('#newsletter');
-
-                  form.addEventListener('submit', (event) => {
-                    if (form.method === 'post') {
-                      return;
-                    }
-
-                    const spamCheck = form.querySelector('[name="name"]');
-                    const firstName = form.querySelector('[name="first_name"]');
-                    const lastName = form.querySelector('[name="last_name"]');
-
-                    if (spamCheck.value || lastName.value) {
-                      // falls into the thanks page ignoring the submit
-                      return;
-                    }
-
-                    event.preventDefault();
-
-                    let [first, ...last] = firstName.value.split(' ');
-                    lastName.value = last.join(' ');
-                    firstName.value = first;
-
-                    form.method = 'post';
-                    form.action = target;
-                    form.submit();
-                  });
-                })();
-            </script>
-          </div>
-        </when-do>
-        <when-do show="2025-06-26T10:00:00Z" hide="2025-08-01T00:00:00Z">
-          <div class="tickets">
-            <a href="https://app.tickettailor.com/checkout/view-event/id/6028948/chk/fe2b/"
-              class="notice cta button">Buy your ticket</a>
-            <div class="notice">
-              <p class="heading">£219<small>+VAT</small></p>
-              <p>Limited early bird pricing</p>
             </div>
-          </div>
-        </when-do>
-        <when-do hide="2025-06-26T10:00:00Z">
-          <div class="tickets">
-            <div class="notice">
-              <p class="heading">Limited early bird tickets</p>
-              <p>Released June 26th at 11am</p>
+          </when-do>
+          <when-do show="2025-06-26T10:00:00Z" hide="2025-08-01T00:00:00Z">
+            <div class="tickets">
+              <a href="https://app.tickettailor.com/checkout/view-event/id/6028948/chk/fe2b/"
+                class="notice cta button">Buy your ticket</a>
+              <div class="notice">
+                <p class="heading">£219<small>+VAT</small></p>
+                <p>Limited early bird pricing</p>
+              </div>
             </div>
-          </div>
-        </when-do>
-        <script src="/assets/when-do.wc.mjs"></script>
+          </when-do>
+          <when-do hide="2025-06-26T10:00:00Z">
+            <div class="tickets">
+              <div class="notice">
+                <p class="heading">Limited early bird tickets</p>
+                <p>Released June 26th at 11am</p>
+              </div>
+            </div>
+          </when-do>
+          <script src="/assets/when-do.wc.mjs"></script>
+          <form id="newsletter" class="notice">
+            <p>Get notified of new speakers &amp; event news</p>
+            <div style="position: absolute !important;left: -999em !important;">
+              <label for="name">We use the following field to detect spam bots. If you fill this in, your subscription
+                will be ignored. If you're using a voice over assistant make sure to exit the following text field and
+                move to the "name" field.</label>
+              <input type="text" id="name" name="name" autocomplete="off">
+            </div>
+
+            <div class="grid">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" placeholder="Your email address" required>
+
+              <label for="first_name">Name</label>
+              <input type="text" placeholder="Your name" name="first_name" id="first_name" required>
+
+              <input hidden="" name="last_name" value="">
+
+              <input type="submit" value="Notify me">
+            </div>
+          </form>
+          <script>
+              (() => {
+                const target = 'https://mail.leftlogic.com/subscribe/6784a6a3-4975-409d-975b-64df4672ca9c';
+                const form = document.querySelector('#newsletter');
+
+                form.addEventListener('submit', (event) => {
+                  if (form.method === 'post') {
+                    return;
+                  }
+
+                  const spamCheck = form.querySelector('[name="name"]');
+                  const firstName = form.querySelector('[name="first_name"]');
+                  const lastName = form.querySelector('[name="last_name"]');
+
+                  if (spamCheck.value || lastName.value) {
+                    // falls into the thanks page ignoring the submit
+                    return;
+                  }
+
+                  event.preventDefault();
+
+                  let [first, ...last] = firstName.value.split(' ');
+                  lastName.value = last.join(' ');
+                  firstName.value = first;
+
+                  form.method = 'post';
+                  form.action = target;
+                  form.submit();
+                });
+              })();
+          </script>
+        </div>
         <p class="strap">A full day of eight carefully curated sessions for an audience that cares about the future of
           the web, and who want their ideas challenged.</p>
 
