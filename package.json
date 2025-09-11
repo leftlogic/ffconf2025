@@ -6,16 +6,19 @@
   "scripts": {
     "lint:css": "npx eslint *.css",
     "lint:html": "npx eslint *.html",
-    "lint:js": "npx eslint *.js"
+    "lint:js": "npx eslint *.js",
+    "minify-css": "postcss style.css -o style.min.css --use cssnano"
   },
   "devDependencies": {
     "@eslint/css": "^0.8.1",
     "@html-eslint/eslint-plugin": "^0.39.0",
     "@html-eslint/parser": "^0.39.0",
     "browserslist-config-baseline": "^0.4.0",
+    "cssnano": "^7.1.1",
     "eslint": "^9.25.1",
     "eslint-plugin-compat": "^6.0.2",
     "globals": "^16.0.0",
+    "postcss-cli": "^11.0.1",
     "sharp": "^0.34.2"
   },
   "keywords": [],
