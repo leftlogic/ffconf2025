@@ -453,6 +453,13 @@ ffconf-card {
 [data-speaker='jessica-eda'] {
   --p-image-url: url(/assets/speakers/jessica-eda-duo.jpg);
 }
+[data-speaker='sacha'] {
+  --p-image-url: url(/assets/speakers/sacha-duo.jpg);
+}
+
+[data-speaker='asim'] {
+  --p-image-url: url(/assets/speakers/asim-duo.jpg);
+}
 
 footer {
   font-size: 1.5rem;
