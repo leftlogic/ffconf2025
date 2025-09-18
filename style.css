@@ -149,7 +149,7 @@ section.hero {
   background-size: contain;
 
   .container {
-    padding: 96px 40px;
+    padding: 96px 24px;
     gap: 48px;
   }
 }
@@ -173,7 +173,7 @@ section {
   }
 
   .container {
-    padding: 40px;
+    padding: 40px 24px;
     max-width: 1096px;
     margin: 0 auto;
     display: flex;
