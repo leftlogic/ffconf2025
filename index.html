@@ -20,6 +20,12 @@
     <link rel="stylesheet" href="./style.css">
     <script defer data-domain="2025.ffconf.org" src="https://plausible.io/js/script.outbound-links.js"></script>
     <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+    <script>
+      // frame bust - can't believe we're still doing this in 2025
+      if (window.top !== window.self) {
+        window.top.location = window.self.location;
+      }
+    </script>
   </head>
 
   <body>
@@ -93,35 +99,35 @@
             </div>
           </form>
           <script>
-              (() => {
-                const target = 'https://mail.leftlogic.com/subscribe/6784a6a3-4975-409d-975b-64df4672ca9c';
-                const form = document.querySelector('#newsletter');
+            (() => {
+              const target = 'https://mail.leftlogic.com/subscribe/6784a6a3-4975-409d-975b-64df4672ca9c';
+              const form = document.querySelector('#newsletter');
 
-                form.addEventListener('submit', (event) => {
-                  if (form.method === 'post') {
-                    return;
-                  }
+              form.addEventListener('submit', (event) => {
+                if (form.method === 'post') {
+                  return;
+                }
 
-                  const spamCheck = form.querySelector('[name="name"]');
-                  const firstName = form.querySelector('[name="first_name"]');
-                  const lastName = form.querySelector('[name="last_name"]');
+                const spamCheck = form.querySelector('[name="name"]');
+                const firstName = form.querySelector('[name="first_name"]');
+                const lastName = form.querySelector('[name="last_name"]');
 
-                  if (spamCheck.value || lastName.value) {
-                    // falls into the thanks page ignoring the submit
-                    return;
-                  }
+                if (spamCheck.value || lastName.value) {
+                  // falls into the thanks page ignoring the submit
+                  return;
+                }
 
-                  event.preventDefault();
+                event.preventDefault();
 
-                  let [first, ...last] = firstName.value.split(' ');
-                  lastName.value = last.join(' ');
-                  firstName.value = first;
+                let [first, ...last] = firstName.value.split(' ');
+                lastName.value = last.join(' ');
+                firstName.value = first;
 
-                  form.method = 'post';
-                  form.action = target;
-                  form.submit();
-                });
-              })();
+                form.method = 'post';
+                form.action = target;
+                form.submit();
+              });
+            })();
           </script>
         </div>
         <p class="strap">A full day of eight carefully curated sessions for an audience that cares about the future of
@@ -331,6 +337,7 @@
           </ul>
         </nav>
       </footer>
+    </section>
   </body>
 
 </html>
