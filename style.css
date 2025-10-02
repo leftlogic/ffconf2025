@@ -245,6 +245,15 @@ ffconf-card {
     gap: 24px;
     flex: 1;
 
+    &.headline {
+      min-height: 300px;
+      
+      @media (min-width: 768px) {
+        grid-column: span 2;
+      }
+      
+    }
+
     em {
       text-decoration: underline;
     }
