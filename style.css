@@ -247,11 +247,10 @@ ffconf-card {
 
     &.headline {
       min-height: 300px;
-      
+
       @media (min-width: 768px) {
         grid-column: span 2;
       }
-      
     }
 
     em {
@@ -468,6 +467,14 @@ ffconf-card {
 
 [data-speaker='asim'] {
   --p-image-url: url(/assets/speakers/asim-duo.jpg);
+}
+
+[data-speaker='chetan'] {
+  --p-image-url: url(/assets/speakers/chetan-duo.jpg);
+}
+
+[data-speaker='surya'] {
+  --p-image-url: url(/assets/speakers/surya-duo.jpg);
 }
 
 footer {
