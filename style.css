@@ -384,6 +384,7 @@ ffconf-card {
 .tags {
   font-size: 1.2rem;
   color: #778083;
+  text-transform: lowercase;
 }
 
 .sessions {

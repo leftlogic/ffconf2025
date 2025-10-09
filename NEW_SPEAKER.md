@@ -16,6 +16,7 @@ This guide describes the steps and required information for an AI agent to add a
 
 ### 1. Create the Speaker's HTML Page
 - Duplicate an existing speaker page (e.g. `hannah.html`).
+  - **Be sure to copy the full `<head>` section, including all meta tags, icons, fonts, analytics scripts, and stylesheets.**
 - Update the following:
   - Speaker image
   - Speaker name
