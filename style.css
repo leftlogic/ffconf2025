@@ -204,7 +204,11 @@ section.info {
 }
 
 #logo {
-  width: clamp(200px, 27vw, 400px);
+  width: clamp(208px, 27vw, 4016px);
+  background-color: var(--c-gold);
+  background-color: var(--c-gold-p3);
+  border-radius: 1000px;
+  padding: clamp(4px, 0.8vw, 16px);
 }
 
 ffconf-card-holder {
