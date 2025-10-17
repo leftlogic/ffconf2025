@@ -134,7 +134,7 @@ body {
   /* background-size: 100% auto; */
   background-size: 100% clamp(160px, 47vw, 344px);
   background-position: top center;
-  width: 100vw;
+  width: 100%;
   height: clamp(160px, 47vw, 344px);
   position: absolute;
   z-index: 0;
