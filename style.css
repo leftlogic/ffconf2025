@@ -451,6 +451,10 @@ ffconf-card {
   }
 }
 
+[data-speaker] {
+  min-height: 264px;
+}
+
 [data-speaker='hannah'] {
   --p-image-url: url(/assets/speakers/hannah-duo.jpg);
 }
@@ -731,4 +735,8 @@ form.notice {
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+#sessions .details p {
+  display: none;
 }
